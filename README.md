@@ -80,7 +80,7 @@ security:
   firewalls:
     # ...
     api_firewall:
-      pattern: ^/api/
+      pattern: ^/api/ # Secured area depending of your app
       stateless: true
       guard:
         authenticators:
