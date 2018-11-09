@@ -5,6 +5,11 @@ API basic authentication bundle
 
 This Symfony bundle helps you to install basic authentication easily for your API.
 
+Requirements
+============
+
+- Symfony version >= 3.4
+
 Installation
 ============
 
