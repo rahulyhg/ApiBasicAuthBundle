@@ -1,5 +1,5 @@
-Ang3 API basic authentication bundle
-====================================
+API basic authentication bundle
+===============================
 
 [![Build Status](https://travis-ci.org/Ang3/ApiBasicAuthBundle.svg?branch=master)](https://travis-ci.org/Ang3/ApiBasicAuthBundle) [![Latest Stable Version](https://poser.pugx.org/ang3/api-basic-auth-bundle/v/stable)](https://packagist.org/packages/ang3/api-basic-auth-bundle) [![Latest Unstable Version](https://poser.pugx.org/ang3/api-basic-auth-bundle/v/unstable)](https://packagist.org/packages/ang3/api-basic-auth-bundle) [![Total Downloads](https://poser.pugx.org/ang3/api-basic-auth-bundle/downloads)](https://packagist.org/packages/ang3/api-basic-auth-bundle)
 
