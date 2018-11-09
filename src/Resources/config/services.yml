@@ -1,0 +1,19 @@
+services:
+  # DOCTRINE LISTENERS
+  Ang3\Bundle\ApiBasicAuthBundle\EventListener\Doctrine\UserSubscriber:
+    arguments:
+      $apiUserManager: '@ang3_api_basic_auth.api_user_manager'
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+  # SECURITY
+  Ang3\Bundle\ApiBasicAuthBundle\Security\ApiKeyUserProvider:
+    arguments:
+      $userProvider: '@ang3_api_basic_auth.custom_user_provider'
+  # SERVICES
+  ang3_api_basic_auth.api_user_manager:
+    class: Ang3\Bundle\ApiBasicAuthBundle\Manager\ApiUserManager
+    arguments:
+      $apiKeyGenerator: '@ang3_api_basic_auth.api_key_generator'
+  ang3_api_basic_auth.api_key_generator:
+    class: Ang3\Bundle\ApiBasicAuthBundle\Utils\ApiKeyGenerator
+    public: true
