@@ -74,8 +74,8 @@ security:
 
   providers:
     # ...
-    api_key_user_provider:
-      id: Ang3\Bundle\ApiBasicAuthBundle\Security\ApiKeyUserProvider
+    api_user_provider:
+      id: ang3_api_basic_auth.api_user_provider
 
   firewalls:
     # ...
@@ -84,8 +84,8 @@ security:
       stateless: true
       guard:
         authenticators:
-          - Ang3\Bundle\ApiBasicAuthBundle\Security\ApiTokenAuthenticator
-      provider: api_key_user_provider
+          - ang3_api_basic_auth.api_token_authenticator
+      provider: api_user_provider
       # DEPRECATION : Not setting "logout_on_user_change" to true on firewall "main_login" is deprecated as of 3.4, it will always be true in 4.0.
       logout_on_user_change: true
 ```

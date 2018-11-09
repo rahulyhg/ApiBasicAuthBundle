@@ -6,14 +6,20 @@ services:
     tags:
       - { name: doctrine.event_subscriber, connection: default }
   # SECURITY
-  Ang3\Bundle\ApiBasicAuthBundle\Security\ApiKeyUserProvider:
+  ang3_api_basic_auth.api_user_provider:
+    class: Ang3\Bundle\ApiBasicAuthBundle\Security\ApiUserProvider
     arguments:
       $userProvider: '@ang3_api_basic_auth.custom_user_provider'
-  # SERVICES
+    public: true
+  ang3_api_basic_auth.api_token_authenticator:
+    class: Ang3\Bundle\ApiBasicAuthBundle\Security\ApiTokenAuthenticator
+    public: true
   ang3_api_basic_auth.api_user_manager:
     class: Ang3\Bundle\ApiBasicAuthBundle\Manager\ApiUserManager
     arguments:
       $apiKeyGenerator: '@ang3_api_basic_auth.api_key_generator'
+    public: true
+  # UTILS
   ang3_api_basic_auth.api_key_generator:
     class: Ang3\Bundle\ApiBasicAuthBundle\Utils\ApiKeyGenerator
     public: true

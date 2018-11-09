@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 /**
  * @author Joanis ROUANET
  */
-class ApiKeyUserProvider implements UserProviderInterface
+class ApiUserProvider implements UserProviderInterface
 {
     /**
      * Custom user provider.
