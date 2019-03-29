@@ -36,13 +36,13 @@ class ApiTokenAuthenticator extends AbstractGuardAuthenticator
         // Si on a un tableau
         if (is_array($authorizationHeaderValue) || !$authorizationHeaderValue) {
             // Pas d'identifiant
-            return [];
+            return array();
         }
 
         // Si ce n'est pas une authentification "basique"
         if ('Basic ' != substr($authorizationHeaderValue, 0, 6)) {
             // Pas d'identifiant
-            return [];
+            return array();
         }
 
         // Récupération et décodage de l'entête
@@ -51,14 +51,14 @@ class ApiTokenAuthenticator extends AbstractGuardAuthenticator
         // Si la chaîne d'autorisation n'est pas correctement formatée
         if (false === $authorization || !preg_match('#^(\w+):([0-9a-f]+)$#', $authorization, $matches)) {
             // Pas d'identifiant
-            return [];
+            return array();
         }
 
         // Retour des identifiants
-        return [
+        return array(
             'username' => $matches[1],
             'apiKey' => $matches[2],
-        ];
+        );
     }
 
     /**
@@ -117,10 +117,10 @@ class ApiTokenAuthenticator extends AbstractGuardAuthenticator
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        $data = [
+        $data = array(
             'code' => Response::HTTP_FORBIDDEN,
             'message' => 'Authentication failed.',
-        ];
+        );
 
         return new JsonResponse($data, Response::HTTP_FORBIDDEN);
     }
@@ -130,10 +130,10 @@ class ApiTokenAuthenticator extends AbstractGuardAuthenticator
      */
     public function start(Request $request, AuthenticationException $authException = null)
     {
-        $data = [
+        $data = array(
             'code' => Response::HTTP_UNAUTHORIZED,
             'message' => 'Authentication required.',
-        ];
+        );
 
         return new JsonResponse($data, Response::HTTP_UNAUTHORIZED);
     }

@@ -46,7 +46,7 @@ class ApiUserManager
 
     /**
      * Generate a new API key.
-     * 
+     *
      * @return string
      */
     public function generateApiKey()
